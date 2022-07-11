@@ -5,4 +5,8 @@ Map<String, String> arabic = {
   "popular": "شائع",
   "foodPairing": "الاقتران الغذائي",
   "introduce": "تقديم",
+  "addToCart": "إضافة إلى البطاقة",
+  "showMore": "أظهر المزيد",
+  "showLess": "عرض أقل",
+  "recommended": "موصى به"
 };
