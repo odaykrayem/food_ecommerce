@@ -8,5 +8,8 @@ Map<String, String> english = {
   "addToCart": "Add to cart",
   "showMore": "Show more",
   "showLess": "Show less",
-  "recommended": "Recommended"
+  "recommended": "Recommended",
+  "itemCount": "Item count",
+  "youCantReduceMore": "You can't reduce more !",
+  "youCantAddMore": "You can't add more !",
 };

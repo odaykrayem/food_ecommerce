@@ -45,10 +45,14 @@ class RecommendedFoodDetail extends StatelessWidget {
                     iconColor: Colors.white,
                     iconSize: Dimensions.iconSize24,
                     backgroundColor: AppColors.mainColor),
-                BigText(
-                  text: '\$ ${product.price!} X  0 ',
-                  color: AppColors.mainBlackColor,
-                  size: Dimensions.font26,
+                Directionality(
+                  // by me
+                  textDirection: TextDirection.ltr,
+                  child: BigText(
+                    text: '\$ ${product.price!} X  0 ',
+                    color: AppColors.mainBlackColor,
+                    size: Dimensions.font26,
+                  ),
                 ),
                 AppIcon(
                     icon: Icons.add,
@@ -90,9 +94,10 @@ class RecommendedFoodDetail extends StatelessWidget {
                       color: AppColors.mainColor,
                     )),
                 Container(
+                  height: Dimensions.height60, //by me
                   padding: EdgeInsets.only(
-                    top: Dimensions.height20,
-                    bottom: Dimensions.height20,
+                    // top: Dimensions.height20,
+                    // bottom: Dimensions.height20,
                     left: Dimensions.width30, //width20
                     right: Dimensions.width30, //width20
                   ),
@@ -100,9 +105,16 @@ class RecommendedFoodDetail extends StatelessWidget {
                     borderRadius: BorderRadius.circular(Dimensions.radius20),
                     color: AppColors.mainColor,
                   ),
-                  child: BigText(
-                    text: "\$ 10 | ${'addToCart'.tr}",
-                    color: Colors.white,
+                  child: Center(
+                    // by me
+                    child: Directionality(
+                      // by me
+                      textDirection: TextDirection.ltr,
+                      child: BigText(
+                        text: "\$ 10 | ${'addToCart'.tr}",
+                        color: Colors.white,
+                      ),
+                    ),
                   ),
                 ),
               ],

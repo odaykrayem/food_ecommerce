@@ -8,5 +8,8 @@ Map<String, String> arabic = {
   "addToCart": "إضافة إلى البطاقة",
   "showMore": "أظهر المزيد",
   "showLess": "عرض أقل",
-  "recommended": "موصى به"
+  "recommended": "موصى به",
+  "itemCount": "عدد العناصر",
+  "youCantReduceMore": "لا يمكنك إنقاص القيمة أكثر",
+  "youCantAddMore": "لا يمكنك إضافة عناصر أكثر",
 };

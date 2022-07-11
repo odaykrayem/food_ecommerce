@@ -30,7 +30,7 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
-    CacheHelper.saveData(key: SharedPrefsKeys.languageCode, value: 'en');
+    CacheHelper.saveData(key: SharedPrefsKeys.languageCode, value: 'ar');
     Get.find<PopularProductController>().getPopularProductList();
     Get.find<RecommendedProductController>().getRecommendedProductList();
     return GetMaterialApp(
@@ -39,7 +39,7 @@ class _MyAppState extends State<MyApp> {
       home: MainFoodPage(),
       initialRoute: RouteHelper.initial,
       getPages: RouteHelper.routes,
-      locale: Locale('en'),
+      locale: Locale('ar'),
       translations: AppLocalization(),
     );
   }
