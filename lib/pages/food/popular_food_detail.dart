@@ -1,5 +1,6 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
+import 'package:food_ecommerce/controllers/cart_controller.dart';
 import 'package:food_ecommerce/controllers/popular_product_controller.dart';
 import 'package:food_ecommerce/data/repository/popular_product_repo.dart';
 import 'package:food_ecommerce/models/products_model.dart';
@@ -27,7 +28,8 @@ class PopularFoodDetail extends StatelessWidget {
     ProductModel product =
         Get.find<PopularProductController>().popularProductList[pageId];
     // var product = Get.find<PopularProductController>().popularProductList[pageId];
-    Get.find<PopularProductController>().initProduct();
+    Get.find<PopularProductController>()
+        .initProduct(product, Get.find<CartController>());
 
     return Scaffold(
       backgroundColor: Colors.white,
@@ -76,7 +78,7 @@ class PopularFoodDetail extends StatelessWidget {
                         width: Dimensions.width20,
                       ),
                       BigText(
-                        text: '${popularProduct.quantity}',
+                        text: '${popularProduct.inCartItems}',
                       ),
                       SizedBox(
                         // width: Dimensions.width10 / 2,
@@ -89,26 +91,31 @@ class PopularFoodDetail extends StatelessWidget {
                           child: Icon(Icons.add, color: AppColors.signColor)),
                     ]),
               ),
-              Container(
-                height: Dimensions.height60,
-                padding: EdgeInsets.only(
-                  // top: Dimensions.height20,
-                  // bottom: Dimensions.height20,
-                  left: Dimensions.width30, //width20
-                  right: Dimensions.width30, //width20
-                ),
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(Dimensions.radius20),
-                  color: AppColors.mainColor,
-                ),
-                child: Center(
-                  //by me
-                  child: Directionality(
+              GestureDetector(
+                onTap: () {
+                  popularProduct.addItem(product);
+                },
+                child: Container(
+                  height: Dimensions.height60,
+                  padding: EdgeInsets.only(
+                    // top: Dimensions.height20,
+                    // bottom: Dimensions.height20,
+                    left: Dimensions.width30, //width20
+                    right: Dimensions.width30, //width20
+                  ),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(Dimensions.radius20),
+                    color: AppColors.mainColor,
+                  ),
+                  child: Center(
                     //by me
-                    textDirection: TextDirection.ltr,
-                    child: BigText(
-                      text: "\$ ${product.price} | ${'addToCart'.tr}",
-                      color: Colors.white,
+                    child: Directionality(
+                      //by me
+                      textDirection: TextDirection.ltr,
+                      child: BigText(
+                        text: "\$ ${product.price} | ${'addToCart'.tr}",
+                        color: Colors.white,
+                      ),
                     ),
                   ),
                 ),
@@ -147,7 +154,36 @@ class PopularFoodDetail extends StatelessWidget {
                         Get.to(() => MainFoodPage());
                       },
                       child: AppIcon(icon: Icons.arrow_back_ios)),
-                  AppIcon(icon: Icons.shopping_cart_checkout_outlined),
+                  GetBuilder<PopularProductController>(builder: (controller) {
+                    return Stack(
+                      children: [
+                        const AppIcon(icon: Icons.shopping_cart_outlined),
+                        Get.find<PopularProductController>().totalItems >= 1
+                            ? Positioned(
+                                right: 0,
+                                top: 0,
+                                child: AppIcon(
+                                  icon: Icons.circle,
+                                  size: 20,
+                                  iconColor: Colors.transparent,
+                                  backgroundColor: AppColors.mainColor,
+                                ),
+                              )
+                            : Container(),
+                        Get.find<PopularProductController>().totalItems >= 1
+                            ? Positioned(
+                                right: 6, //3
+                                top: 3,
+                                child: BigText(
+                                  text:
+                                      '${Get.find<PopularProductController>().totalItems}',
+                                  size: 12,
+                                  color: Colors.white,
+                                ))
+                            : Container(),
+                      ],
+                    );
+                  }),
                 ]),
           ),
           //introduction of food

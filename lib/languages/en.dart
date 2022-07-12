@@ -12,4 +12,6 @@ Map<String, String> english = {
   "itemCount": "Item count",
   "youCantReduceMore": "You can't reduce more !",
   "youCantAddMore": "You can't add more !",
+  "youShouledAtLeastAddOneItemInTheCart":
+      "You shouled at least add one item in the cart !",
 };
