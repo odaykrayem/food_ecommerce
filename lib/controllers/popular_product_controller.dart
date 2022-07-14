@@ -2,6 +2,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:food_ecommerce/controllers/cart_controller.dart';
+import 'package:food_ecommerce/models/cart_model.dart';
 import 'package:food_ecommerce/models/products_model.dart';
 import 'package:food_ecommerce/utils/colors.dart';
 import 'package:get/get.dart';
@@ -60,7 +61,11 @@ class PopularProductController extends GetxController {
     if ((_inCartItems + quantity) < 0) {
       Get.snackbar('itemCount'.tr, 'youCantReduceMore'.tr,
           backgroundColor: AppColors.mainColor, colorText: Colors.white);
-      _inCartItems = 0;
+      if (_inCartItems > 0) {
+        _quantity = -_inCartItems;
+        return _quantity;
+      }
+      // _inCartItems = 0;
       return 0;
     } else if ((_inCartItems + quantity) > 5) {
       Get.snackbar('itemCount'.tr, 'youCantAddMore'.tr,
@@ -100,5 +105,9 @@ class PopularProductController extends GetxController {
 
   int get totalItems {
     return _cart.getTotalItems;
+  }
+
+  List<CartModel> get getItems {
+    return _cart.getItems;
   }
 }

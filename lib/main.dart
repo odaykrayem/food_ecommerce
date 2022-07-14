@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:food_ecommerce/controllers/popular_product_controller.dart';
 import 'package:food_ecommerce/controllers/recommended_product_controller.dart';
 import 'package:food_ecommerce/localization/localization.dart';
+import 'package:food_ecommerce/pages/cart/cart_page.dart';
 import 'package:food_ecommerce/pages/food/recommended_food_detail.dart';
 import 'package:food_ecommerce/pages/home/food_page_body.dart';
 import 'package:food_ecommerce/pages/home/main_food_page.dart';

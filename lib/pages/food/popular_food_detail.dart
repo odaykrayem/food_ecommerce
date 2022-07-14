@@ -4,6 +4,7 @@ import 'package:food_ecommerce/controllers/cart_controller.dart';
 import 'package:food_ecommerce/controllers/popular_product_controller.dart';
 import 'package:food_ecommerce/data/repository/popular_product_repo.dart';
 import 'package:food_ecommerce/models/products_model.dart';
+import 'package:food_ecommerce/pages/cart/cart_page.dart';
 import 'package:food_ecommerce/utils/app_constants.dart';
 import 'package:get/get.dart';
 
@@ -162,17 +163,22 @@ class PopularFoodDetail extends StatelessWidget {
                             ? Positioned(
                                 right: 0,
                                 top: 0,
-                                child: AppIcon(
-                                  icon: Icons.circle,
-                                  size: 20,
-                                  iconColor: Colors.transparent,
-                                  backgroundColor: AppColors.mainColor,
+                                child: GestureDetector(
+                                  onTap: () {
+                                    Get.to(() => CartPage());
+                                  },
+                                  child: AppIcon(
+                                    icon: Icons.circle,
+                                    size: 20,
+                                    iconColor: Colors.transparent,
+                                    backgroundColor: AppColors.mainColor,
+                                  ),
                                 ),
                               )
                             : Container(),
                         Get.find<PopularProductController>().totalItems >= 1
                             ? Positioned(
-                                right: 6, //3
+                                right: 6,
                                 top: 3,
                                 child: BigText(
                                   text:
