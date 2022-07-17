@@ -12,5 +12,8 @@ Map<String, String> arabic = {
   "itemCount": "عدد العناصر",
   "youCantReduceMore": "لا يمكنك إنقاص القيمة أكثر",
   "youCantAddMore": "لا يمكنك إضافة عناصر أكثر",
-  "youShouledAtLeastAddOneItemInTheCart": "يجب عليك إضافة عنصر واحد على الأقل"
+  "youShouledAtLeastAddOneItemInTheCart": "يجب عليك إضافة عنصر واحد على الأقل",
+  "noItems": "لا يوجد عناصر",
+  "noItemsMsg": "لم يتم إضافة أي عناصر إلى البطاقة بعد",
+  "checkout": "الدفع",
 };

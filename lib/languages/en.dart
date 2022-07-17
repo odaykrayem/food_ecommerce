@@ -14,4 +14,7 @@ Map<String, String> english = {
   "youCantAddMore": "You can't add more !",
   "youShouledAtLeastAddOneItemInTheCart":
       "You shouled at least add one item in the cart !",
+  "noItems": "No Items",
+  "noItemsMsg": "There are no items in the cart yet!",
+  "checkout": "Check out",
 };
