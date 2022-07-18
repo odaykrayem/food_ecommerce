@@ -138,11 +138,13 @@ class PopularFoodDetail extends StatelessWidget {
               width: double.infinity,
               height: Dimensions.popularFoodImgSize,
               decoration: BoxDecoration(
-                  image: DecorationImage(
-                      fit: BoxFit.cover,
-                      image: NetworkImage(AppConstants.BASE_URL +
-                          AppConstants.UPLOAD_URL +
-                          product.img!))),
+                image: DecorationImage(
+                  fit: BoxFit.cover,
+                  image: NetworkImage(AppConstants.BASE_URL +
+                      AppConstants.UPLOAD_URL +
+                      product.img!),
+                ),
+              ),
             ),
           ),
           //icon widgets
@@ -165,11 +167,14 @@ class PopularFoodDetail extends StatelessWidget {
                   GetBuilder<PopularProductController>(builder: (controller) {
                     return GestureDetector(
                       onTap: () {
-                        if (controller.totalItems >= 1) {
-                          Get.toNamed(RouteHelper.getCartPage());
-                        } else {
-                          Get.snackbar('noItems'.tr, 'noItemsMsg'.tr);
-                        }
+                        Get.toNamed(RouteHelper.getCartPage());
+
+                        // if (controller.totalItems >= 1) {
+                        //   Get.toNamed(RouteHelper.getCartPage());
+                        // }
+                        // else {
+                        //   Get.snackbar('noItems'.tr, 'noItemsMsg'.tr);
+                        // }
                       },
                       child: Stack(
                         children: [

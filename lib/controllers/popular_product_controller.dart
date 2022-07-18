@@ -1,5 +1,4 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:food_ecommerce/controllers/cart_controller.dart';
 import 'package:food_ecommerce/models/cart_model.dart';
@@ -31,8 +30,9 @@ class PopularProductController extends GetxController {
 
   Future<void> getPopularProductList() async {
     Response response = await popularProductRepo.getPopularProductList();
+    debugPrint('rrr' + '${response.bodyString}');
     if (response.statusCode == 200) {
-      debugPrint('product controller : product got');
+      // debugPrint('product controller : product got');
       _popularProductList = []; //initialze to not repeat data
       _popularProductList.addAll(Product.fromJson(response.body).products);
       _isLoaded = true;
@@ -43,21 +43,18 @@ class PopularProductController extends GetxController {
   }
 
   void setQuantity(bool isIncrement) {
-    debugPrint('quantity : $_quantity');
+    // debugPrint('quantity : $_quantity');
     if (isIncrement) {
       _quantity = checkQuantity(_quantity + 1);
     } else {
       // deb
       _quantity = checkQuantity(_quantity - 1);
-      debugPrint('${_inCartItems}');
+      // debugPrint('${_inCartItems}');
     }
     update();
   }
 
   int checkQuantity(int quantity) {
-    debugPrint('nnnn : ${_inCartItems + quantity}');
-    debugPrint('qqq : ${quantity}');
-    debugPrint('iii : ${_inCartItems}');
     if ((_inCartItems + quantity) < 0) {
       Get.snackbar('itemCount'.tr, 'youCantReduceMore'.tr,
           backgroundColor: AppColors.mainColor, colorText: Colors.white);
@@ -87,7 +84,8 @@ class PopularProductController extends GetxController {
     if (exist) {
       _inCartItems = _cart.getQuantity(product);
     }
-    debugPrint('popular product : The quantity in the cart is $_inCartItems');
+    // debugPrint('popular product : The quantity in the cart is $_inCartItems');
+
     //if exist
     //get from storage _inCartItems=
   }
@@ -98,8 +96,8 @@ class PopularProductController extends GetxController {
     _inCartItems = _cart.getQuantity(product);
     update();
     _cart.items.forEach((key, value) {
-      debugPrint(
-          'ppopular product cont: The id is: ${value.id.toString()} + The quantity is : ${value.quantity}');
+      // debugPrint(
+      //     'ppopular product cont: The id is: ${value.id.toString()} + The quantity is : ${value.quantity}');
     });
   }
 

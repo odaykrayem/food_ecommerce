@@ -17,6 +17,11 @@ class CartController extends GetxController {
   //you should differ between this and getItems function
   Map<int, CartModel> get items => _items;
 
+  /**
+   * only for storage and sharedPreferences
+   */
+  List<CartModel> storageItems = [];
+
   void addItem(ProductModel product, int quantity) {
     var totalQuantity = 0;
     if (_items.containsKey(product.id!)) {
@@ -41,8 +46,7 @@ class CartController extends GetxController {
       if (quantity > 0) {
         //add new
         _items.putIfAbsent(product.id!, () {
-          debugPrint(
-              'cart controller : adding item to cart : ${product.id} quantity: $quantity');
+          // debugPrint('cart controller : adding item to cart : ${product.id} quantity: $quantity');
           return CartModel(
             id: product.id,
             name: product.name,
@@ -59,6 +63,8 @@ class CartController extends GetxController {
             backgroundColor: AppColors.mainColor, colorText: Colors.white);
       }
     }
+
+    cartRepo.addToCartList(getItems);
     update();
   }
 
@@ -102,5 +108,43 @@ class CartController extends GetxController {
       total += value.quantity! * value.price!;
     });
     return total;
+  }
+
+  List<CartModel> getCartdata() {
+    setCart = cartRepo.getCartList();
+    return storageItems;
+  }
+
+  set setCart(List<CartModel> items) {
+    storageItems = items;
+    // debugPrint('cart controller :Length of cart Items ${storageItems.length}');
+
+    for (int i = 0; i < storageItems.length; i++) {
+      _items.putIfAbsent(storageItems[i].product!.id!, () => storageItems[i]);
+    }
+  }
+
+  void addToHitory() {
+    cartRepo.addToCartHistoryList();
+    clear();
+  }
+
+  void clear() {
+    _items = {};
+    update();
+  }
+
+  List<CartModel> getCartHistoryList() {
+    return cartRepo.getCartHistoryList();
+  }
+
+  set setItems(Map<int, CartModel> setItems) {
+    _items = {};
+    _items = setItems;
+  }
+
+  void addToCartList() {
+    cartRepo.addToCartList(getItems);
+    update();
   }
 }

@@ -17,4 +17,14 @@ Map<String, String> english = {
   "noItems": "No Items",
   "noItemsMsg": "There are no items in the cart yet!",
   "checkout": "Check out",
+  "cartHistory": "Cart History",
+  "total": "Total",
+  "items": "Items",
+  "item": "Item",
+  "oneMore": "One more",
+  "historyProduct": "History Product",
+  "productReviewIsNotAvailableForHistoryProduct":
+      "Product review is not available for history products",
+  "yourCartIsEmpty": "Your cart is empty",
+  "youDidntBuyAnyThingSoFar": "You didn't buy any thing so far",
 };

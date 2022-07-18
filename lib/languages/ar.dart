@@ -16,4 +16,14 @@ Map<String, String> arabic = {
   "noItems": "لا يوجد عناصر",
   "noItemsMsg": "لم يتم إضافة أي عناصر إلى البطاقة بعد",
   "checkout": "الدفع",
+  "cartHistory": "العمليات السابقة",
+  "total": "الكلي",
+  "items": "عناصر",
+  "item": "عنصر",
+  "oneMore": "إضافة جديد",
+  "historyProduct": "المنتجات السابقة",
+  "productReviewIsNotAvailableForHistoryProduct":
+      " استعراض المنتجات السابقة غير متاح من أجل المنتجات السابقة",
+  "yourCartIsEmpty": "بطاقتك فارفة",
+  "youDidntBuyAnyThingSoFar": "لم تقم بشراء أي منتج بعد",
 };

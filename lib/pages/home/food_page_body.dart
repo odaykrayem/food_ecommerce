@@ -2,13 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:food_ecommerce/controllers/popular_product_controller.dart';
 import 'package:food_ecommerce/controllers/recommended_product_controller.dart';
 import 'package:food_ecommerce/models/products_model.dart';
-import 'package:food_ecommerce/pages/food/popular_food_detail.dart';
 import 'package:food_ecommerce/routes/route_helper.dart';
 import 'package:food_ecommerce/utils/app_constants.dart';
 import 'package:food_ecommerce/utils/cacheHelper.dart';
 import 'package:food_ecommerce/utils/colors.dart';
 import 'package:food_ecommerce/utils/dimensions.dart';
-import 'package:food_ecommerce/utils/shared_prefs_keys.dart';
 import 'package:food_ecommerce/widgets/app_column.dart';
 import 'package:food_ecommerce/widgets/big_text.dart';
 import 'package:food_ecommerce/widgets/icon_and_text_widget.dart';
@@ -47,10 +45,9 @@ class _FoodPageBodyState extends State<FoodPageBody> {
 
   @override
   Widget build(BuildContext context) {
-    debugPrint('${Dimensions.screenHeight}');
-    debugPrint('${Dimensions.screenWidth}');
-    debugPrint('${Dimensions.width45}');
-    debugPrint(CacheHelper.getData(key: SharedPrefsKeys.languageCode));
+    // debugPrint('${Dimensions.screenHeight}');
+    // debugPrint('${Dimensions.screenWidth}');
+    // debugPrint(CacheHelper.getData(key: SharedPrefsKeys.languageCode));
     return Column(
       children: [
         //Slider section
@@ -152,31 +149,36 @@ class _FoodPageBodyState extends State<FoodPageBody> {
                                 height: Dimensions.listViewTextContSize,
                                 decoration: BoxDecoration(
                                   borderRadius: BorderRadius.only(
-                                    topRight: CacheHelper.getData(
-                                                key: SharedPrefsKeys
-                                                    .languageCode) ==
-                                            'en'
-                                        ? Radius.circular(Dimensions.radius20)
-                                        : Radius.zero,
-                                    bottomRight: CacheHelper.getData(
-                                                key: SharedPrefsKeys
-                                                    .languageCode) ==
-                                            'en'
-                                        ? Radius.circular(Dimensions.radius20)
-                                        : Radius.zero,
-                                    topLeft: CacheHelper.getData(
-                                                key: SharedPrefsKeys
-                                                    .languageCode) ==
-                                            'ar'
-                                        ? Radius.circular(Dimensions.radius20)
-                                        : Radius.zero,
-                                    bottomLeft: CacheHelper.getData(
-                                                key: SharedPrefsKeys
-                                                    .languageCode) ==
-                                            'ar'
-                                        ? Radius.circular(Dimensions.radius20)
-                                        : Radius.zero,
-                                  ),
+                                      topRight:
+                                          //  CacheHelper.getData(
+                                          //             key: SharedPrefsKeys
+                                          //                 .languageCode) ==
+                                          //         'en'
+                                          //     ?
+                                          Radius.circular(Dimensions.radius20),
+                                      // :
+                                      // Radius.zero,
+                                      bottomRight:
+                                          //  CacheHelper.getData(
+                                          //             key: SharedPrefsKeys
+                                          //                 .languageCode) ==
+                                          //         'en'
+                                          //     ?
+                                          Radius.circular(Dimensions.radius20)
+                                      // : Radius.zero,
+                                      // topLeft: CacheHelper.getData(
+                                      //             key: SharedPrefsKeys
+                                      //                 .languageCode) ==
+                                      //         'ar'
+                                      //     ? Radius.circular(Dimensions.radius20)
+                                      //     : Radius.zero,
+                                      // bottomLeft: CacheHelper.getData(
+                                      //             key: SharedPrefsKeys
+                                      //                 .languageCode) ==
+                                      //         'ar'
+                                      //     ? Radius.circular(Dimensions.radius20)
+                                      //     : Radius.zero,
+                                      ),
                                   color: Colors.white,
                                 ),
                                 child: Padding(
