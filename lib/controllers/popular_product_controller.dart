@@ -30,7 +30,7 @@ class PopularProductController extends GetxController {
 
   Future<void> getPopularProductList() async {
     Response response = await popularProductRepo.getPopularProductList();
-    debugPrint('rrr' + '${response.bodyString}');
+    // debugPrint('Popular products responce : ${response.bodyString}');
     if (response.statusCode == 200) {
       // debugPrint('product controller : product got');
       _popularProductList = []; //initialze to not repeat data

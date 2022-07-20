@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:food_ecommerce/controllers/popular_product_controller.dart';
+import 'package:food_ecommerce/controllers/recommended_product_controller.dart';
 import 'package:food_ecommerce/pages/home/food_page_body.dart';
 import 'package:food_ecommerce/utils/colors.dart';
 import 'package:food_ecommerce/utils/dimensions.dart';
 import 'package:food_ecommerce/widgets/big_text.dart';
 import 'package:food_ecommerce/widgets/small_text.dart';
+import 'package:get/get.dart';
 
 class MainFoodPage extends StatefulWidget {
   const MainFoodPage({Key? key}) : super(key: key);
@@ -12,12 +15,21 @@ class MainFoodPage extends StatefulWidget {
   State<MainFoodPage> createState() => _MainFoodPageState();
 }
 
+Future<void> _loadResources() async {
+  //when we call Getx controller before GetMaterialApp they generally stay in the memory
+  //but here we call them after
+  await Get.find<PopularProductController>().getPopularProductList();
+  await Get.find<RecommendedProductController>().getRecommendedProductList();
+}
+
 class _MainFoodPageState extends State<MainFoodPage> {
   @override
   Widget build(BuildContext context) {
     // setArabic(context);
-    return Scaffold(
-      body: Column(
+    return RefreshIndicator(
+      onRefresh: _loadResources,
+      color: AppColors.mainColor,
+      child: Column(
         children: [
           //showing the header
           Container(

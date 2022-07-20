@@ -26,4 +26,5 @@ Map<String, String> arabic = {
       " استعراض المنتجات السابقة غير متاح من أجل المنتجات السابقة",
   "yourCartIsEmpty": "بطاقتك فارفة",
   "youDidntBuyAnyThingSoFar": "لم تقم بشراء أي منتج بعد",
+  "profile": "الملف الشخصي",
 };

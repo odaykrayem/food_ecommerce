@@ -27,4 +27,5 @@ Map<String, String> english = {
       "Product review is not available for history products",
   "yourCartIsEmpty": "Your cart is empty",
   "youDidntBuyAnyThingSoFar": "You didn't buy any thing so far",
+  "profile": "Profile",
 };
